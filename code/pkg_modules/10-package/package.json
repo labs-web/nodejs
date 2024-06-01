@@ -1,0 +1,12 @@
+{
+  "name": "apprendre-javascript-avec-node-js",
+  "version": "1.0.0",
+  "description": "Apprendre Javascript avec Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["js","nodejs"],
+  "author": "ESSARRAJ fouad",
+  "license": "ISC"
+}

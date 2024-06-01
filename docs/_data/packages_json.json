@@ -1,16 +1,26 @@
 [
     {
-        "name":"pkg_autoformation",
-        "titre":"Autoformation"
+        "name":"pkg_introduction",
+        "titre":"Introduction à Node.js et Javascript"
+        
+    },
+    {
+        "name":"pkg_javascript",
+        "titre":"Apprendre Javascript avec Node.js"
+        
+    },
+    {
+        "name":"pkg_modules",
+        "titre":"Modules et packages"
         
     },
     {
         "name":"pkg_pratique",
-        "titre":"Pratique"
+        "titre":"Pratiques"
         
     },
     {
-        "name":"pkg_mini-projet",
+        "name":"pkg_mini_projet",
         "titre":"Mini projet"
         
     }
