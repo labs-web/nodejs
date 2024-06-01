@@ -11,3 +11,18 @@ a {
     text-decoration: none;
 }
 
+
+.theme-light .mermaid {
+    --color-red: #ff7777;
+    --color-orange: #ffbb99;
+    --color-yellow: #ffeeaa;
+    --color-green: #bbffbb;
+    --color-cyan: #bbffee;
+    --color-blue: #aaccff;
+    --color-purple: #ddbbff;
+    --color-pink: #ffcccc; 
+}
+
+.section-3{
+    fill: red !important;
+}

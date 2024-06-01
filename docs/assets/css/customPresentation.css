@@ -15,3 +15,47 @@
     --r-heading4-size: 1em;
   }
   
+
+  .mermaid svg{
+
+    max-width : 85% !important
+
+}
+
+
+.reveal .slides {
+
+    text-align: justify !important;
+}
+
+.reveal .slides p,h1,h2,h3 {
+    padding-left: 20px !important;
+    
+
+}
+
+.reveal .slides p{
+    padding-top: 20px !important;
+    font-size: larger;
+    width: 95%;
+}
+
+.reveal .slides pre p{
+    padding-top: 0px !important;
+    padding-left: 0px !important;
+    width: 100% !important;
+}
+
+
+/* Mermaid mindmap */
+
+.theme-light .mermaid {
+    --color-red: #ff7777;
+    --color-orange: #ffbb99;
+    --color-yellow: #ffeeaa;
+    --color-green: #bbffbb;
+    --color-cyan: #bbffee;
+    --color-blue: #aaccff;
+    --color-purple: #ddbbff;
+    --color-pink: #ffcccc; 
+}
