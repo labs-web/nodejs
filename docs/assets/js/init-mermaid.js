@@ -88,12 +88,12 @@ export function initialize_mermiad(){
         darkMode : true,
         
         themeVariables: {
-          primaryColor: '#00838F',  // Dark blue as requested
-          primaryTextColor: '#fff',  // White for good contrast
+          primaryColor: '#F2F2F2',  // Dark blue as requested
+          primaryTextColor: '#262626',  // White for good contrast
           primaryBorderColor: '#293A54', // Darker shade of primary for borders
-          lineColor: '#455278',        // Lighter blue for lines
-          secondaryColor: '#7986A1',    // Even lighter blue for secondary elements
-          tertiaryColor: '#A2AACC',      // Lightest blue for tertiary elements
+          lineColor: '#455278'        // Lighter blue for lines
+          // secondaryColor: '#7986A1',    // Even lighter blue for secondary elements
+          // tertiaryColor: '#A2AACC',      // Lightest blue for tertiary elements
         },
         securityLevel: 'loose',
         startOnLoad: true,
@@ -101,3 +101,21 @@ export function initialize_mermiad(){
     mermaid.initialize(config);
 }
 
+export function initialize_mermiad_presentation(){
+  const config = {
+      theme: 'base',
+      darkMode : true,
+      
+      themeVariables: {
+        primaryColor: '#F2F2F2',  // Dark blue as requested
+        primaryTextColor: '#262626',  // White for good contrast
+        primaryBorderColor: '#6E4161', // Darker shade of primary for borders
+        lineColor: '#6E4161'        // Lighter blue for lines
+        // secondaryColor: '#7986A1',    // Even lighter blue for secondary elements
+        // tertiaryColor: '#A2AACC',      // Lightest blue for tertiary elements
+      },
+      securityLevel: 'loose',
+      startOnLoad: false,
+    };
+  mermaid.initialize(config);
+}

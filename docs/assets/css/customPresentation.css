@@ -1,3 +1,28 @@
+/* palettes de couleurs  */
+
+
+:root {
+    --primary-color: #448C42;
+    --secondary-color: #8C426B;
+    --color1 : #448C42;
+    --color2: #6CA663;
+    --color3: #6EBF49;
+    --accent-color: #F2F2F2;
+    --dark-color: #262626;
+    --light-color: #F2F2F2;
+   
+
+  }
+
+ /* Slide Heading */
+:root {
+    --r-heading1-size: 3.5em;
+    --r-heading2-size: 2.6em;
+    --r-heading3-size: 1.3em;
+    --r-heading4-size: 1em;
+    --r-heading-color: #6CA663;
+}
+
 .sectionHeader {
     margin: 20% 0 !important;
 }
@@ -6,18 +31,14 @@
     display: none !important;
 }
 
-:root {
-    --r-heading1-size: 3.5em;
-    --r-heading2-size: 2.6em;
-    --r-heading3-size: 1.3em;
-    --r-heading4-size: 1em;
+.mermaid{
+    margin: auto;
 }
-  
-
 .mermaid svg{
-    max-width : 85% !important
+    max-width : 100% !important;
+    max-height: 80vh !important;
+    
 }
-
 
 .reveal .slides {
     text-align: justify !important;
@@ -31,6 +52,7 @@
     padding-top: 20px !important;
     font-size: larger;
     width: 95%;
+    color: var(--dark-color);
 }
 
 .reveal .slides pre p{
@@ -39,16 +61,11 @@
     width: 100% !important;
 }
 
+/* fix line-height issue : from mermaid reveal plugin  */
+div.mermaid {
+    line-height: 1;
+}
 
-/* Mermaid mindmap */
-
-.theme-light .mermaid {
-    --color-red: #ff7777;
-    --color-orange: #ffbb99;
-    --color-yellow: #ffeeaa;
-    --color-green: #bbffbb;
-    --color-cyan: #bbffee;
-    --color-blue: #aaccff;
-    --color-purple: #ddbbff;
-    --color-pink: #ffcccc; 
+pre.highlight {
+    font-size: 25px !important;
 }
