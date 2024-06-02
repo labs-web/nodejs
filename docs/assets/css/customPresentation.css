@@ -1,5 +1,3 @@
-
-
 .sectionHeader {
     margin: 20% 0 !important;
 }
@@ -13,25 +11,20 @@
     --r-heading2-size: 2.6em;
     --r-heading3-size: 1.3em;
     --r-heading4-size: 1em;
-  }
+}
   
 
-  .mermaid svg{
-
+.mermaid svg{
     max-width : 85% !important
-
 }
 
 
 .reveal .slides {
-
     text-align: justify !important;
 }
 
 .reveal .slides p,h1,h2,h3 {
     padding-left: 20px !important;
-    
-
 }
 
 .reveal .slides p{
