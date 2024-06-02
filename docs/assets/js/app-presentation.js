@@ -1,7 +1,6 @@
+
 import {initialize_mermiad_presentation} from "./init-mermaid.js"
 
-// Activation de code highligh
-hljs.highlightAll();
 
 // initialize_mermiad_presentation();
 
@@ -60,3 +59,4 @@ Reveal.initialize({
   
 
 });
+

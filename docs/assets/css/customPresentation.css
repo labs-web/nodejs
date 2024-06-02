@@ -69,3 +69,7 @@ div.mermaid {
 pre.highlight {
     font-size: 25px !important;
 }
+
+pre.highlight p {
+    margin: 0;
+}
