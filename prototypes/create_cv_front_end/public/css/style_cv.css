@@ -1,0 +1,37 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+  }
+  .container {
+    max-width: 800px;
+    margin: 30px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+  .section-title {
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+  }
+  .cv-header {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+  .cv-header h1 {
+    font-size: 2em;
+    margin-bottom: 5px;
+  }
+  .cv-header p {
+    font-size: 1em;
+    color: #6c757d;
+  }
+  ul {
+    padding-left: 20px;
+  }

@@ -17,20 +17,18 @@ const express = require('express');
 
     // Route pour générer le CV à partir des données JSON
     app.post('/generate-cv', (req, res) => {
-      const { fileName } = req.body;
-      const filePath = path.join(__dirname, 'data', `${fileName}.json`);
-
+      const cvData = req.body; // On reçoit le JSON directement
+  
       try {
-        const cvData = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-        const template = fs.readFileSync(path.join(__dirname, 'templates', 'cv.ejs'), 'utf-8');
-        const renderedCV = ejs.render(template, cvData);
-
-        res.send(renderedCV); // Envoyer le CV en HTML au frontend
+          const template = fs.readFileSync(path.join(__dirname, 'templates', 'cv.ejs'), 'utf-8');
+          const renderedCV = ejs.render(template, cvData);
+  
+          res.send(renderedCV); // Envoyer le CV en HTML au frontend
       } catch (error) {
-        console.error(error);
-        res.status(500).send('Erreur lors de la génération du CV.' + error);
+          console.error(error);
+          res.status(500).send('Erreur lors de la génération du CV.');
       }
-    });
+  });
 
     // Configurer EJS comme moteur de templates pour le backend
     app.set('view engine', 'ejs');

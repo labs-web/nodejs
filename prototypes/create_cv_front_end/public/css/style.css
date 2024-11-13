@@ -7,14 +7,24 @@ body {
 
 h1 {
     color: #333;
+    text-align: center;
 }
 
-form {
-    margin-bottom: 20px;
+.container {
+    width: 100%;
+}
+
+.json-input, .cv-output {
+    float: left;
+    width: 100%;
+}
+
+.json-input textarea {
+    width: 100%;
 }
 
 #cvOutput {
     border: 1px solid #ddd;
     padding: 20px;
-    margin-top: 20px;
+    display: block;
 }
