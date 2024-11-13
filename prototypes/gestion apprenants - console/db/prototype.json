@@ -7,5 +7,10 @@
     "id": 2,
     "first_name": "Madani",
     "last_name": "Ali"
+  },
+  {
+    "id": 3,
+    "first_name": "Amine",
+    "last_name": "Wahabi"
   }
 ]
