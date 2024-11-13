@@ -1,0 +1,44 @@
+{
+    "etatCivil": {
+      "nom": "Madani",
+      "prenom": "Ali",
+      "poste": "Développeur Laravel",
+      "experience": "10 ans",
+      "ville": "Tanger",
+      "email": "ali.madani@example.com",
+      "telephone": "+212 600 000 000"
+    },
+    "diplomes": [
+      {
+        "annee": 2010,
+        "titre": "Licence en Informatique",
+        "etablissement": "Université Abdelmalek Essaâdi"
+      },
+      {
+        "annee": 2007,
+        "titre": "DUT en Génie Informatique",
+        "etablissement": "Institut Spécialisé de Technologie Appliquée de Tanger"
+      }
+    ],
+    "competences": [
+      "Laravel",
+      "Node.js",
+      "JavaScript",
+      "HTML/CSS",
+      "MySQL"
+    ],
+    "experiences": [
+      {
+        "poste": "Développeur Laravel Senior",
+        "entreprise": "Tech Solutions",
+        "annees": "2015 - Présent",
+        "description": "Responsable du développement et de la maintenance d'applications en Laravel."
+      },
+      {
+        "poste": "Développeur Full Stack",
+        "entreprise": "Informatique Maroc",
+        "annees": "2010 - 2015",
+        "description": "Développement d'applications web avec Laravel et Node.js."
+      }
+    ]
+  }
