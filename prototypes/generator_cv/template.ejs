@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV de <%= etatCivil.nom %> <%= etatCivil.prenom %></title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .section-title {
+      font-weight: bold;
+      margin-top: 20px;
+      text-transform: uppercase;
+    }
+    .cv-header {
+      text-align: center;
+      padding: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="cv-header">
+      <h1><%= etatCivil.nom %> <%= etatCivil.prenom %></h1>
+      <p><%= etatCivil.poste %> - <%= etatCivil.experience %> d'expérience</p>
+      <p><%= etatCivil.ville %> | <%= etatCivil.email %> | <%= etatCivil.telephone %></p>
+    </div>
+    
+    <div class="section">
+      <h2 class="section-title">Diplômes</h2>
+      <% diplomes.forEach(diplome => { %>
+        <p><strong><%= diplome.annee %></strong> - <%= diplome.titre %> à <%= diplome.etablissement %></p>
+      <% }) %>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Compétences</h2>
+      <ul>
+        <% competences.forEach(competence => { %>
+          <li><%= competence %></li>
+        <% }) %>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Expériences professionnelles</h2>
+      <% experiences.forEach(experience => { %>
+        <p><strong><%= experience.poste %></strong> chez <%= experience.entreprise %> (<%= experience.annees %>)</p>
+        <p><%= experience.description %></p>
+      <% }) %>
+    </div>
+  </div>
+</body>
+</html>
