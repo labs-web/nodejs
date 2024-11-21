@@ -1,37 +1,43 @@
-Voici un tutoriel étape par étape pour créer une ligne de commande PowerShell (ou compatible avec tout terminal) à l'aide d'un package npm. Le package prendra deux valeurs en entrée, calculera leur somme et affichera le résultat.
+Voici un guide détaillé pour créer un package Node.js répondant à vos besoins, avec un exemple complet.  
+
+### Structure finale du projet  
+Voici comment organiser votre projet :  
+
+```
+math-cli/
+├── bin/
+│   └── math-cli.js      # Script CLI
+├── src/
+│   ├── add.js           # Classe pour addition
+│   ├── subtract.js      # Classe pour soustraction
+│   └── index.js         # Point d'entrée principal
+├── package.json         # Métadonnées du package
+└── README.md            # Documentation
+```
 
 ---
 
-### Étape 1 : Initialiser un nouveau projet npm
+### Étape 1 : Créer le fichier `package.json`  
+Utilisez la commande suivante pour initialiser votre projet :  
+```bash
+npm init -y
+```
 
-1. Créez un nouveau dossier pour votre projet :
-   ```bash
-   mkdir calc-cli
-   cd calc-cli
-   ```
-
-2. Initialisez un projet npm :
-   ```bash
-   npm init -y
-   ```
-
-   Cela crée un fichier `package.json` de base.
-
----
-
-### Étape 2 : Configurer le champ `bin` dans `package.json`
-
-Modifiez le fichier `package.json` pour inclure une section `bin`. Cette section mappe le nom de la commande CLI (par exemple, `calc`) au script exécutable. Exemple de configuration :
-
+Cela générera un fichier `package.json`. Modifiez-le pour ajouter un champ `bin`, qui définit la commande CLI :  
 ```json
 {
-  "name": "calc-cli",
+  "name": "math-cli",
   "version": "1.0.0",
-  "description": "Un outil CLI simple pour calculer la somme de deux nombres",
-  "main": "index.js",
+  "description": "A simple CLI for addition and subtraction",
+  "main": "src/index.js",
   "bin": {
-    "calc": "./bin/calc.js"
+    "math-cli": "./bin/math-cli.js"
   },
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": ["cli", "math", "nodejs"],
   "author": "Votre Nom",
   "license": "MIT"
 }
@@ -39,112 +45,138 @@ Modifiez le fichier `package.json` pour inclure une section `bin`. Cette section
 
 ---
 
-### Étape 3 : Créer le fichier exécutable CLI
+### Étape 2 : Créer les classes pour `add` et `subtract`  
 
-1. Créez un répertoire `bin` et un fichier pour votre script :
-   ```bash
-   mkdir bin
-   touch bin/calc.js
-   ```
+#### `src/add.js`  
+```javascript
+export class Add {
+  static calculate(a, b) {
+    return a + b;
+  }
+}
+```
 
-2. Ouvrez `bin/calc.js` dans un éditeur de texte et ajoutez le code suivant :
+#### `src/subtract.js`  
+```javascript
+export class Subtract {
+  static calculate(a, b) {
+    return a - b;
+  }
+}
+```
 
-   ```javascript
-   #!/usr/bin/env node
+#### `src/index.js`  
+```javascript
+import { Add } from './add.js';
+import { Subtract } from './subtract.js';
 
-   // Importer les arguments depuis la ligne de commande
-   const args = process.argv.slice(2);
-
-   // Vérifier qu'il y a bien deux arguments
-   if (args.length !== 2) {
-       console.error("Usage: calc <nombre1> <nombre2>");
-       process.exit(1);
-   }
-
-   // Convertir les arguments en nombres
-   const num1 = parseFloat(args[0]);
-   const num2 = parseFloat(args[1]);
-
-   // Vérifier que les entrées sont valides
-   if (isNaN(num1) || isNaN(num2)) {
-       console.error("Erreur : Veuillez entrer deux nombres valides.");
-       process.exit(1);
-   }
-
-   // Calculer la somme
-   const sum = num1 + num2;
-
-   // Afficher le résultat
-   console.log(`La somme de ${num1} et ${num2} est : ${sum}`);
-   ```
-
-3. Assurez-vous d'ajouter le **shebang** (`#!/usr/bin/env node`) en haut du fichier pour indiquer qu'il s'agit d'un script Node.js.
-
-4. Rendez le fichier exécutable (nécessaire uniquement sur les systèmes Unix/Linux/MacOS) :
-   ```bash
-   chmod +x bin/calc.js
-   ```
-
----
-
-### Étape 4 : Tester en local
-
-1. Installez le package globalement pour tester votre commande :
-   ```bash
-   npm install -g .
-   ```
-
-2. Testez votre commande en entrant deux nombres :
-   ```bash
-   calc 5 10
-   ```
-
-   Cela devrait afficher :
-   ```
-   La somme de 5 et 10 est : 15
-   ```
-
----
-
-### Étape 5 : Ajouter des validations supplémentaires (optionnel)
-
-Pour rendre votre outil plus robuste, vous pouvez :
-- Gérer des erreurs pour des entrées non numériques.
-- Ajouter une commande d’aide (`--help`).
-- Fournir des options pour d'autres opérations (comme la soustraction, multiplication, etc.).
-
----
-
-### Étape 6 : Publier votre package (optionnel)
-
-Si vous souhaitez partager votre outil, publiez-le sur npm :
-1. Connectez-vous à npm :
-   ```bash
-   npm login
-   ```
-
-2. Publiez le package :
-   ```bash
-   npm publish
-   ```
-
-Les autres utilisateurs pourront ensuite installer et utiliser votre outil avec :
-```bash
-npm install -g calc-cli
+export { Add, Subtract };
 ```
 
 ---
 
-### Résultat attendu
+### Étape 3 : Écrire le script CLI  
 
-1. Commande :
-   ```bash
-   calc 7 3
-   ```
+#### `bin/math-cli.js`  
+Ajoutez un shebang au début pour permettre l'exécution dans les terminaux :  
+```javascript
+#!/usr/bin/env node
 
-2. Sortie :
-   ```
-   La somme de 7 et 3 est : 10
-   ```
+import { Add } from '../src/add.js';
+import { Subtract } from '../src/subtract.js';
 
-Avec ce tutoriel, vous avez créé un outil CLI simple et fonctionnel avec Node.js et npm, utilisable dans PowerShell ou tout autre terminal compatible. 🎉
+// Récupérer les arguments passés à la CLI
+const [,, operation, num1, num2] = process.argv;
+
+if (!operation || !num1 || !num2) {
+  console.error("Usage: math-cli <operation> <num1> <num2>");
+  process.exit(1);
+}
+
+const a = parseFloat(num1);
+const b = parseFloat(num2);
+
+if (isNaN(a) || isNaN(b)) {
+  console.error("Error: Both arguments must be valid numbers.");
+  process.exit(1);
+}
+
+switch (operation) {
+  case "add":
+    console.log(`Result: ${Add.calculate(a, b)}`);
+    break;
+  case "subtract":
+    console.log(`Result: ${Subtract.calculate(a, b)}`);
+    break;
+  default:
+    console.error("Error: Unsupported operation. Use 'add' or 'subtract'.");
+    process.exit(1);
+}
+```
+
+---
+
+### Étape 4 : Rendre le script CLI exécutable  
+Modifiez les permissions du fichier :  
+```bash
+chmod +x bin/math-cli.js
+```
+
+---
+
+### Étape 5 : Tester la CLI localement  
+Pour installer le package en global :  
+```bash
+npm install -g .
+```
+
+Ensuite, utilisez la commande CLI :  
+```bash
+math-cli add 5 3
+# Résultat : 8
+
+math-cli subtract 10 4
+# Résultat : 6
+```
+
+---
+
+### Étape 6 : Importer le module dans un autre projet  
+
+Dans un projet externe :  
+```javascript
+import { Add, Subtract } from 'math-cli';
+
+console.log(Add.calculate(5, 3));       // Résultat : 8
+console.log(Subtract.calculate(10, 4)); // Résultat : 6
+```
+
+---
+
+### Étape 7 : Ajouter une documentation (`README.md`)  
+```markdown
+# Math CLI  
+
+## Description  
+Math CLI is a simple command-line tool for performing addition and subtraction.  
+
+## Installation  
+1. Clone the repository.  
+2. Run `npm install -g` to install globally.  
+
+## Usage  
+### CLI  
+```bash
+math-cli <operation> <num1> <num2>
+# Example:
+math-cli add 5 3
+math-cli subtract 10 4
+```
+
+### As a Module  
+```javascript
+import { Add, Subtract } from 'math-cli';
+
+console.log(Add.calculate(5, 3));
+console.log(Subtract.calculate(10, 4));
+```

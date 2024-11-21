@@ -1,0 +1,16 @@
+{
+  "name": "math-cli",
+  "version": "1.0.0",
+  "description": "A simple CLI for addition and subtraction",
+  "main": "src/index.js",
+  "bin": {
+    "math-cli": "./bin/math-cli.js"
+  },
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": ["cli", "math", "nodejs"],
+  "author": "ESSARRAJ",
+  "license": "MIT"
+}
